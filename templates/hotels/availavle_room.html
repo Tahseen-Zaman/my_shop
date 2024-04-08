@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Available Rooms at {{ hotel.hotel_name }}</h1>
+  <p><strong>Location:</strong> {{ hotel.location }}</p>
+  
+  <form method="GET" class="form-inline my-3">
+    <div class="form-group mr-2">
+      <label for="room_type">Room Type:</label>
+      {{ form.room_type }}
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+  
+  {% if rooms %}
+    <p>{{ rooms.count }} room(s) found.</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Room Number</th>
+          <th>Room Type</th>
+          <th>Price</th>
+          <th>Max Capacity</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for room in rooms %}
+          <tr>
+            <td>{{ room.room_number }}</td>
+            <td>{{ room.get_room_type_display }}</td>
+            <td>{{ room.price }}</td>
+            <td>{{ room.max_capacity }}</td>
+            <td>
+              <a href="{% url 'hotels:book_room' room_id=room.room_id %}" class="btn btn-primary">
+                Book Now
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No rooms available.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="container my-4">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="bg-dark text-white p-3 shadow">
+          <h2>Contact Information</h2>
+          <hr>
+          <p><strong>Name:</strong> {{ user.username }}</p>
+          <p><strong>Email:</strong> {{ user.email }}</p>
+          <p><strong>Phone:</strong> {{ user.profile.phone_number }}</p>
+          <p><strong>Address:</strong> {{ user.profile.address }}</p>
+          <p><strong>Myself:</strong> {{ user.profile.short_intro }}</p>
+          <div class="container-fluid">
+            <a href="{% url 'users:edit-account' %}" class="btn btn-link"><p>Change Account Details</p></a>
+        </div>
+        </div>
+        
+      </div>
+      
+    </div>
+    
+  </div>
+
+<div class="container my-4">
+    <div class="bg-dark text-white p-3 shadow">
+      <div class="row">
+        <div class="col-md-12">
+          <h4><span>Your tickets:</span></h4>
+          <div class="row">
+            {% for ticket in tickets %}
+            {% if forloop.counter0|divisibleby:3 %}
+            <div class="clearfix"></div>
+            {% endif %}
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-header text-dark">
+                  <strong>Ticket Details:</strong>
+                </div>
+                <div class="card-body">
+                  <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Ticket Number</th>
+                        <th>{{ ticket.id }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Vehicle:</td>
+                        <td>{{ ticket.travel_info.vehicle.vehicle_number }}</td>
+                      </tr>
+                      <tr>
+                        <td>Departure Time:</td>
+                        <td>{{ ticket.travel_info.arrival_time }}</td>
+                      </tr>
+                      <tr>
+                        <td>Arrival Time:</td>
+                        <td>{{ ticket.travel_info.arrival_time }}</td>
+                      </tr>
+                      <tr>
+                        <td>Destination:</td>
+                        <td>{{ ticket.travel_info.destination }}</td>
+                      </tr>
+                      <td>Seat Numbers:</td>
+                        <td><p> 
+                            {% for seat in ticket.seats.all %}
+                               Seat - {{ seat.number }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                            </p></td>
+                      </tr>
+                      <tr>
+                        <td>Total Fare:</td>
+                        <td>{{ ticket.total_price }}</td>
+                      </tr>
+                      <tr>
+                        <td>Payment for the Ticket:</td>
+                        <td>{{ ticket.payment.status |title }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            {% empty %}
+            <p>You haven't booked any Tickets</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<div class="container my-4">
+    <div class="bg-dark text-white p-3 shadow">
+      <div class="row">
+        <div class="col-md-12">
+          <h4><span>Your Hotel Bookings:</span></p></h4>
+          <div class="row">
+            {% for booking in bookings %}
+            {% if forloop.counter0|divisibleby:3 %}
+            <div class="clearfix"></div>
+            {% endif %}
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-header text-dark">
+                  <strong>Booking Details:</strong>
+                </div>
+                <div class="card-body">
+                  <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Booking Number</th>
+                        <th>{{ booking.booking_id }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Rooms:</td>
+                        <td><p> 
+                            {% for room in booking.room.all %}
+                               Room - {{ room.room_number }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                            </p></td>
+                      </tr>
+                      <tr>
+                        <td>Check in Date:</td>
+                        <td>{{ booking.check_in_date }}</td>
+                      </tr>
+                      <tr>
+                        <td>Check out Date:</td>
+                        <td>{{ booking.check_out_date }}</td>
+                      </tr>
+                      <tr>
+                        <td>Total Price:</td>
+                        <td>{{ booking.total_price }}</td>
+                      </tr>
+                      <tr>
+                        <td>Created on:</td>
+                        <td>{{ booking.created }}</td>
+                      </tr>
+                      <tr>
+                        <td>Payment for the Booking:</td>
+                        <td>{{ booking.payment.status|title }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            {% empty %}
+            <p>You haven't booked any Rooms</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container my-4">
+    <div class="bg-dark text-white p-3 shadow">
+      <div class="row">
+        <div class="col-md-12">
+          <h4><span>Your Payments:</span></h4>
+          <div class="row">
+            {% for payment in payments %}
+            {% if forloop.counter0|divisibleby:3 %}
+            <div class="clearfix"></div>
+            {% endif %}
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-header text-dark">
+                  <strong>Payment Details:</strong>
+                </div>
+                <div class="card-body">
+                  <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Transaction Number</th>
+                        <th>{{ payment.transaction_id }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Amount Paid</td>
+                        <td>{{ payment.amount }}</td>
+                      </tr>
+                      <tr>
+                        <td>Payment Done on:</td>
+                        <td>{{ payment.created}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            {% empty %}
+            <p>You haven't paid for any Tickets or Hotel Booking</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="container">
+    <section
+      class="jumbotron jumbotron-fluid"
+      style="
+        background-image: url('{% static 'images/011.jpg' %}');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div class="container">
+        <h1 class="display-1">Nemesis</h1>
+        <p class="display-4">Where Adventure Meets Accommodation</p>
+        <p class="lead">
+          Welcome! Please select a vehicle and choose your preferred seat on the
+          next page
+        </p>
+        <p class="lead">
+          Some vehicles may have different seating sections or classes, so choose
+          the appropriate section if applicable
+        </p>
+        <p><strong>Please Explore more:</strong></p>
+        <a href="{% url 'tickets:search_travels' %}" class="btn btn-lg btn-primary"
+          >Search a Ticket</a
+        >
+      </div>
+    </section>
+    </div>
+
+{% endblock content %}

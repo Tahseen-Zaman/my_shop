@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container d-flex justify-content-center align-items-center">
+<div class="form-group">
+<h2>Book Ticket for {{ hotel.hotel_name }}</h2>
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+    <button type="submit" class="btn btn-block btn-primary">Book Room</button>
+  </div>
+</form>
+</div>
+<div class="container d-flex justify-content-center align-items-center">
+  <section id="section-pricing">
+  <h2 class="display-4 text-center">Hot Deals</h2>
+    <div class="row">
+      <div class="col-12 col-md-4 mb-4">
+        <div class="card card-outline-light">
+          <div class="card-header text-dark text-center">
+            <h2>On Flight Bookings</h2>
+            <h4>15% Discount</h4>
+          </div>
+          <div class="card-body">
+            <p class="card-text">For US Bangla Airline ticket booking</p>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item"><i class="fa fa-fw fa-paint-brush" aria-hidden="true"></i> On base fare, for bKash payment.</li>
+            <li class="list-group-item"><i class="fa fa-fw fa-instagram" aria-hidden="true"></i> Till 30 Jun’23.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 mb-4">
+        <div class="card card-outline-light">
+          <div class="card-header text-dark text-center">
+            <h2>On Domestic Hotel Bookings for bKash</h2>
+            <h4>10% Discount</h4>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item"><i class="fa fa-fw fa-paint-brush" aria-hidden="true"></i> Till 30 Jun '23.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 mb-4">
+        <div class="card card-outline-light">
+          <div class="card-header text-dark text-center">
+            <h2>On Int’l Flight Bookings</h2>
+            <h4>Upto 2,000 taka off</h4>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item"><i class="fa fa-fw fa-paint-brush" aria-hidden="true"></i> On base fare, for City Bank American Express® Platinum & Gold credit cards. Till 31 Dec’23</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}

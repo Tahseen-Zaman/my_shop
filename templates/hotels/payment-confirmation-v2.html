@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Confirmation</title>
+  </head>
+  <body
+    style="
+      font-family: 'Gilroy', Avenir Next, Helvetica, Lato, Tahoma, Open Sans,
+        Verdana, sans-serif;
+      background-color: #dce4ef;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    "
+  >
+    <table
+      cellpadding="0"
+      cellspacing="0"
+      style="max-width: 600px; margin: 0 auto; width: 100%"
+    >
+      <tr style="padding: 15px 25px">
+        <td>
+          <!--header-->
+          <table
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+            style="width: 100%; background-color: #0e227b; color: #fff"
+          >
+            <tr>
+              <td style="padding: 23px 25px">
+                <a href="https://www.gozayaan.com/" target="_blank">
+                  <img
+                    src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/gozayaan-logo-white.png"
+                    alt="gozayaan-logo"
+                    style="display: block; width: 95px"
+                  />
+                </a>
+              </td>
+            </tr>
+          </table>
+          <!--end of header-->
+          <!--content-->
+          <div
+            style="
+              word-break: break-word;
+              background-color: #ffffff;
+              padding: 30px 25px;
+            "
+          >
+            <h4
+              style="
+                margin-top: 0;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 17px;
+                text-align: left;
+                color: #022738;
+              "
+            >
+              Dear {{name}},
+            </h4>
+            <p
+              style="
+                font-weight: 500;
+                font-size: 14px;
+                margin-top: 20px;
+                color: #3f4a5a;
+                text-align: left;
+                line-height: 24px;
+              "
+            >
+              We have received your payment of total
+              <span style="font-weight: 700; color: #022738">
+                {{amount}}
+              </span>
+              for your
+              <span style="font-weight: 700; color: #022738">
+                Booking ID: {{booking_id}}.
+              </span>
+              Your ticket is being generated and will be shared with you after
+              processing. Your ticket is guaranteed from this point on and will
+              be sent to your email address when it is issued.
+            </p>
+            <img
+              style="display: block; margin: 0 auto"
+              src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/email/e-wallet.png.png"
+              alt="e-wallet"
+              width="361px"
+              height="361px"
+            />
+            <p
+              style="
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 22px;
+                text-align: left;
+              "
+            >
+              In case you don't receive your e-ticket within 24 hours before
+              your flight departs
+            </p>
+            <p
+              style="
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 22px;
+                margin-top: 20px;
+                margin-bottom: 10px;
+                text-align: left;
+              "
+            >
+              Contact us here:
+            </p>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              style="margin: 0 auto; width: 100%"
+            >
+              <tr>
+                <td
+                  style="
+                    text-align: center;
+                    width: 50%;
+                    vertical-align: top;
+                    font-size: 12px;
+                    font-weight: 600;
+                    line-height: 22px;
+                    color: #0e227b;
+                    padding: 5px 5px 5px 0;
+                  "
+                >
+                  <div
+                    style="
+                      border: 1px solid #ecf3fe;
+                      padding: 10px;
+                      text-align: center;
+                    "
+                  >
+                    <p
+                      style="
+                        margin: 0;
+                        color: #1c3c6b;
+                        font-size: 12px;
+                        font-weight: 600;
+                        display: inline-block;
+                        text-align: center;
+                      "
+                    >
+                      <a
+                        href="tel:+8809678332211"
+                        style="
+                          display: inline-block;
+                          color: #0e227b;
+                          text-decoration: none;
+                          font-size: 14px;
+                        "
+                        target="_blank"
+                      >
+                        <img
+                          src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/email/phone.png"
+                          style="vertical-align: middle; margin: 2px"
+                          height="15px"
+                          width="15px"
+                          alt="phone-logo"
+                        />
+                        {% if region == "PK" %}
+                        <span style="margin-right: 2px"> +92 33 30596362 </span>
+                        {% else %}
+                        <span style="margin-right: 2px">
+                          +88 09678 332211
+                        </span>
+                        {% endif %}
+                        <span style="font-weight: 400"> (10am -10pm) </span>
+                      </a>
+                    </p>
+                  </div>
+                </td>
+                <td
+                  style="
+                    text-align: center;
+                    width: 50%;
+                    vertical-align: top;
+                    font-size: 12px;
+                    font-weight: 600;
+                    line-height: 22px;
+                    color: #0e227b;
+                    padding: 5px 0 5px 5px;
+                  "
+                >
+                  <div
+                    style="
+                      border: 1px solid #ecf3fe;
+                      padding: 10px;
+                      text-align: center;
+                    "
+                  >
+                    <p
+                      style="
+                        margin: 0;
+                        color: #1c3c6b;
+                        font-size: 12px;
+                        font-weight: 600;
+                        display: inline-block;
+                        text-align: center;
+                      "
+                    >
+                      {% if region == "PK" %}
+                      <a
+                        href="https://www.m.me/gozayaanpk"
+                        style="
+                          display: inline-block;
+                          color: #0e227b;
+                          text-decoration: none;
+                          font-size: 14px;
+                          margin-right: 10px;
+                        "
+                        target="_blank"
+                      >
+                        <img
+                          src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/email/messenger.png"
+                          style="vertical-align: middle; margin: 2px"
+                          height="15px"
+                          width="15px"
+                          alt="messenger-logo"
+                        />
+                        Send Message
+                      </a>
+                      {% else %}
+                      <a
+                        href="https://www.m.me/gozayaanbd"
+                        style="
+                          display: inline-block;
+                          color: #0e227b;
+                          text-decoration: none;
+                          font-size: 14px;
+                          margin-right: 10px;
+                        "
+                        target="_blank"
+                      >
+                        <img
+                          src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/email/messenger.png"
+                          style="vertical-align: middle; margin: 2px"
+                          height="15px"
+                          width="15px"
+                          alt="messenger-logo"
+                        />
+                        Send Message
+                      </a>
+                      {% endif %}
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <h4
+              style="
+                font-size: 20px;
+                font-weight: 600;
+                color: #1c3c6b;
+                margin-bottom: 20px;
+              "
+            >
+              Disclaimer
+            </h4>
+            <div>
+              <ul
+                style="
+                  font-size: 14px;
+                  font-weight: 400;
+                  color: #3f4a5a;
+                  padding-left: 0;
+                  list-style-position: inside;
+                "
+              >
+                <li style="margin-bottom: 10px; line-height: 24px">
+                  Tickets are subject to availability as per airlines policy.
+                </li>
+                <li style="margin-bottom: 10px; line-height: 24px">
+                  GoZayaan is bound to follow airlines policies and regulations.
+                </li>
+              </ul>
+            </div>
+            <p
+              style="
+                font-size: 14px;
+                color: #022738;
+                font-weight: 600;
+                margin-top: 40px;
+              "
+            >
+              Thank you for staying with GoZayaan!
+            </p>
+          </div>
+          {% if region == "PK" %}
+          <!--start of footer-->
+          <table
+            cellpadding="0"
+            cellspacing="0"
+            style="
+              background-color: #ecf3fe;
+              width: 100%;
+              padding: 20px 25px 14px;
+            "
+          >
+            <tr>
+              <td style="text-align: left; width: 50%; vertical-align: top">
+                <p
+                  style="
+                    color: #3a4856;
+                    font-size: 12px;
+                    padding-left: 36px;
+                    margin-top: 0;
+                  "
+                >
+                  Download GoZayaan App
+                </p>
+                <a
+                  style="text-decoration: none"
+                  href="https://play.google.com/store/apps/details?id=com.gozayaan.app"
+                  target="_blank"
+                >
+                  <img
+                    src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/play-store.png"
+                    alt="play-store-icon"
+                    style="width: 105px"
+                  />
+                </a>
+                <a
+                  style="text-decoration: none"
+                  href="https://apps.apple.com/us/app/gozayaan/id1635126688"
+                  target="_blank"
+                >
+                  <img
+                    src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/apple-store-icon.png"
+                    alt="apple-store-icon"
+                    style="width: 105px"
+                  />
+                </a>
+              </td>
+              <td>
+                <span
+                  style="
+                    display: inline-block;
+                    border-right: 1px dashed #bcc9dc;
+                    height: 40px;
+                  "
+                ></span>
+              </td>
+              <td style="text-align: center; width: 50%; vertical-align: top">
+                <p style="color: #3a4856; font-size: 12px; margin-top: 0">
+                  Follow Us
+                </p>
+                <a
+                  href="https://www.facebook.com/GoZayaanPK"
+                  style="display: inline-block"
+                  target="_blank"
+                >
+                  <img
+                    src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/facebook.png"
+                    alt="icon-facebook"
+                    style="width: 16px"
+                  />
+                </a>
+                <a
+                  href="https://www.instagram.com/gozayaanpk/"
+                  style="display: inline-block"
+                  target="_blank"
+                >
+                  <img
+                    src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/instagram.png"
+                    alt="icon-instagram"
+                    style="width: 16px"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/gozayaanpk/"
+                  style="display: inline-block"
+                  target="_blank"
+                >
+                  <img
+                    src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/LinkedIn.png"
+                    alt="icon-linkedin"
+                    style="width: 16px"
+                  />
+                </a>
+              </td>
+            </tr>
+          </table>
+          <!--end of footer-->
+          {% else %}
+          <!--start of footer-->
+          <table
+            cellpadding="0"
+            cellspacing="0"
+            style="
+              background-color: #ecf3fe;
+              width: 100%;
+              padding: 20px 25px 14px;
+            "
+          >
+            <tr>
+              <td style="text-align: left; width: 50%; vertical-align: top">
+                <p
+                  style="
+                    color: #3a4856;
+                    font-size: 12px;
+                    padding-left: 36px;
+                    margin-top: 0;
+                  "
+                >
+                  Download GoZayaan App
+                </p>
+                <a
+                  style="text-decoration: none"
+                  href="https://play.google.com/store/apps/details?id=com.gozayaan.app"
+                  target="_blank"
+                >
+                  <img
+                    src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/play-store.png"
+                    alt="play-store-icon"
+                    style="width: 105px"
+                  />
+                </a>
+                <a
+                  style="text-decoration: none"
+                  href="https://apps.apple.com/us/app/gozayaan/id1635126688"
+                  target="_blank"
+                >
+                  <img
+                    src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/apple-store-icon.png"
+                    alt="apple-store-icon"
+                    style="width: 105px"
+                  />
+                </a>
+              </td>
+              <td>
+                <span
+                  style="
+                    display: inline-block;
+                    border-right: 1px dashed #bcc9dc;
+                    height: 40px;
+                  "
+                ></span>
+              </td>
+              <td style="text-align: center; width: 50%; vertical-align: top">
+                <p style="color: #3a4856; font-size: 12px; margin-top: 0">
+                  Follow Us
+                </p>
+                <a
+                  href="https://www.facebook.com/GoZayaanBD"
+                  style="display: inline-block"
+                  target="_blank"
+                >
+                  <img
+                    src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/facebook.png"
+                    alt="icon-facebook"
+                    style="width: 16px"
+                  />
+                </a>
+                <a
+                  href="https://www.instagram.com/gozayaan/"
+                  style="display: inline-block"
+                  target="_blank"
+                >
+                  <img
+                    src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/instagram.png"
+                    alt="icon-instagram"
+                    style="width: 16px"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/gozayaanlimited/"
+                  style="display: inline-block"
+                  target="_blank"
+                >
+                  <img
+                    src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/LinkedIn.png"
+                    alt="icon-linkedin"
+                    style="width: 16px"
+                  />
+                </a>
+              </td>
+            </tr>
+          </table>
+          <!--end of footer-->
+          {% endif %}
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

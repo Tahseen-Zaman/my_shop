@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Book {{ hotel.hotel_name }}</h1>
+  <form method="post" action="{% url 'hotel:book_hotel' hotel_id=hotel.id %}">
+    {% csrf_token %}
+    <label for="check_in_date">Check-in Date:</label>
+    <input type="date" name="check_in_date" id="check_in_date" required>
+    <br><br>
+    <label for="check_out_date">Check-out Date:</label>
+    <input type="date" name="check_out_date" id="check_out_date" required>
+    <br><br>
+    <label for="num_guests">Number of Guests:</label>
+    <input type="number" name="num_guests" id="num_guests" min="1" max="{{ room.max_capacity }}" required>
+    <br><br>
+    <input type="submit" value="Book">
+  </form>
+{% endblock %}

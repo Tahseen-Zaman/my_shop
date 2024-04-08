@@ -1,0 +1,108 @@
+{% extends 'base.html' %} {% block content %}
+{%load static%}
+<div class="container d-flex justify-content-center align-items-center">
+  {% if hotels %}
+  <div class="align-items-center col-12">
+    <h1>Available Hotels in {{ location }} :</h1>
+    <ul>
+      {% for hotel in hotels %}
+      <li>
+        {{ hotel.hotel_type }} hotel in {{ hotel.location }}:
+        <a
+          href="{% url 'hotels:hotel_detail' hotel_id=hotel.hotel_id %}"
+          class="btn btn-primary"
+          >{{ hotel.hotel_name }}</a
+        >
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <div class="col-6">
+      <h1>No available hotels found in {{ location }}</h1>
+    </div>
+    {% endif %}
+  </div>
+</div>
+<div class="container d-flex justify-content-center align-items-center">
+  <section id="section-pricing">
+    <h2 class="display-4 text-center">Hot Deals</h2>
+    <div class="row">
+      <div class="col-12 col-md-4 mb-4">
+        <div class="card card-outline-light">
+          <div class="card-header text-dark text-center">
+            <h2>On Flight Bookings</h2>
+            <h4>15% Discount</h4>
+          </div>
+          <div class="card-body">
+            <p class="card-text">For US Bangla Airline ticket booking</p>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <i class="fa fa-fw fa-paint-brush" aria-hidden="true"></i> On base
+              fare, for bKash payment.
+            </li>
+            <li class="list-group-item">
+              <i class="fa fa-fw fa-instagram" aria-hidden="true"></i> Till 30
+              Jun’23.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 mb-4">
+        <div class="card card-outline-light">
+          <div class="card-header text-dark text-center">
+            <h2>On Domestic Hotel Bookings for bKash</h2>
+            <h4>10% Discount</h4>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <i class="fa fa-fw fa-paint-brush" aria-hidden="true"></i> Till 30
+              Jun '23.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 mb-4">
+        <div class="card card-outline-light">
+          <div class="card-header text-dark text-center">
+            <h2>On Int’l Flight Bookings</h2>
+            <h4>Upto 2,000 taka off</h4>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <i class="fa fa-fw fa-paint-brush" aria-hidden="true"></i> On base
+              fare, for City Bank American Express® Platinum & Gold credit
+              cards. Till 31 Dec’23
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="container">
+  <section
+    class="jumbotron jumbotron-fluid"
+    style="
+      background-image: url('{% static 'images/011.jpg' %}');
+      background-size: cover;
+      background-position: center;
+    "
+  >
+    <div class="container">
+      <h1 class="display-1">Nemesis</h1>
+      <p class="display-4">Where Adventure Meets Accommodation</p>
+      <p class="lead">
+        Welcome! Please select a vehicle and choose your preferred seat on the
+        next page
+      </p>
+      <p class="lead">
+        Some vehicles may have different seating sections or classes, so choose
+        the appropriate section if applicable
+      </p>
+      <p><strong>Please Explore more:</strong></p>
+      <a href="{% url 'tickets:search_travels' %}" class="btn btn-lg btn-primary"
+        >Search a Ticket</a
+      >
+    </div>
+{% endblock %}

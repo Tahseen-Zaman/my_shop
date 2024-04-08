@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static%}
+
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Contact Information</h2>
+        <hr>
+        <p><strong>Name:</strong> {{ ticket.user.username }}</p>
+        <p><strong>Email:</strong> {{ ticket.user.email }}</p>
+        <p><strong>Phone:</strong> {{ ticket.user.profile.phone_number }}</p>
+        <p><strong>Address:</strong> {{ ticket.user.profile.address }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+  <div class="card">
+    <div class="card-header">
+      <strong> Ticket Details:</strong>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ticket Number</td>
+              <td> {{ ticket.id }}</td>
+            </tr>
+            <tr>
+              <td>Vehicle:</td>
+              <td>{{ ticket.travel_info.vehicle.vehicle_number }}</td>
+            </tr>
+            <tr>
+              <td>Departure Time:</td>
+              <td>{{ ticket.travel_info.arrival_time }}</td>
+            </tr>
+            <tr>
+              <td>Arrival Time:</td>
+              <td>{{ ticket.travel_info.arrival_time }}</td>
+            </tr>
+            <tr>
+              <td>Destination:</td>
+              <td>{{ ticket.travel_info.destination }}</td>
+            </tr>
+            <tr>
+              <td>Seat Numbers:</td>
+              <td> {{ ticket.seat_numbers }}</td>
+            </tr>
+            <tr>
+              <td>Total Fare:</td>
+              <td>{{ ticket.total_price }}</td>
+            </tr>
+            <tr>
+              <td>Payment for the Ticket:</td>
+              <td><strong>{{ ticket.payment.status }}</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </table>
+    </div>
+  </section>
+</div>
+
+</div>
+  </div>
+</div>
+</br>
+<div class="d-flex justify-content-center align-items-center">
+  <a href="{% url 'users:make_payment' ticket.ticket_id %}" class="btn btn-lg btn-primary">Make Payment</a>
+</div> 
+</br>
+  <div class="container">
+    <section
+      class="jumbotron jumbotron-fluid"
+      style="
+        background-image: url('{% static 'images/011.jpg' %}');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div class="container">
+        <h1 class="display-1">Nemesis</h1>
+        <p class="display-4">Where Adventure Meets Accommodation</p>
+        <p class="lead">
+          Welcome! Please select a vehicle and choose your preferred seat on the
+          next page
+        </p>
+        <p class="lead">
+          Some vehicles may have different seating sections or classes, so choose
+          the appropriate section if applicable
+        </p>
+        <p><strong>Please Explore more:</strong></p>
+        <a href="{% url 'tickets:search_travels' %}" class="btn btn-lg btn-primary"
+          >Search a Ticket</a
+        >
+      </div>
+
+
+{% endblock %}

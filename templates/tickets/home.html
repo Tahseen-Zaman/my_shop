@@ -1,0 +1,211 @@
+{% extends 'base.html' %} {% block content %}
+{% load static %}
+
+<section class="jumbotron jumbotron-fluid" style="background-image: url('{% static 'images/005.jpg' %}');background-size: cover; background-position: center;">
+  <div class="container">
+    <h1 class="display-1">Nemesis</h1>
+    <p class="display-4">Where Adventure Meets Accommodation</p>
+    <p class="lead">As a world-class travel and lodging organization, we are committed to providing travelers with outstanding encounters and hassle-free stays. With a sizable network of lodging options, including hotels, resorts, and rental homes, we aim to be the go-to resource for anyone looking for amazing vacations. In the cutthroat travel industry, our dedication to quality, client happiness, and innovation sets us apart. To guarantee that every traveler's needs and preferences are satisfied with the highest care and attention, we strive to offer a wide variety of lodging alternatives, individualized services, and simple booking procedures.</p>
+    <p><strong>Please Explore more:</strong></p>
+    <a href="{% url 'hotels:search_hotel' %}" class="btn btn-lg btn-primary">Search a Hotel</a>
+    <a href="{% url 'tickets:search_travels' %}" class="btn btn-lg btn-primary">Search a Ticket</a>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <p>Choose a vehicle to start booking your tickets:</p>
+      <div class="row">
+        {% for travel in travels %}
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ travel.destination }} to {{ travel.origin }}</h5>
+              <p class="card-text">{{ travel.vehicle }}</p>
+              <p class="card-text">Type of Route: {{ travel.vehicle.type }}</p>
+              <p class="card-text">Departure time: {{ travel.departure_time }}</p>
+              <a
+              href="{% url 'tickets:travel_detail' travel_id=travel.id %}"
+                class="btn btn-primary"
+                >Show details of vehicle and Travel</a
+              >
+            </div>
+          </div>
+        </div>
+        {% empty %}
+        <p>There are no vehicles available.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="container d-flex justify-content-center align-items-center">
+  <section id="showcase">
+    <h2 class="display-4">OUR Tour Packages</h2>
+    <p>A destination that offers everything you want and more.</p>
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel" data-slide-to="1"></li>
+        <li data-target="#carousel" data-slide-to="2"></li>
+        <li data-target="#carousel" data-slide-to="3"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox" style="text-align: center;">
+        <div class="carousel-item active">
+          <img src="{% static 'images/004.jpg'%}" alt="Slide #1" class="d-block img-fluid">
+          <div class="carousel-caption">
+            <h3 class="display-4">Thailand</h3>
+            <p>Let your senses be delighted by the exotic beauty of Thailand.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'images/001.jpg'%}" alt="Slide #2" class="d-block img-fluid">
+          <div class="carousel-caption">
+            <h3 class="display-4">Maldives</h3>
+            <p>Maldives's ultimate travel destination, with hotels, restaurants and more!</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'images/002.jpg'%}" alt="Slide #3" class="d-block img-fluid">
+          <div class="carousel-caption">
+            <h3 class="display-4">Vietnam</h3>
+            <p>Explore the wonders of Vietnam, a country where the natural beauty is just breathtaking.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'images/003.jpg'%}" alt="Slide #4" class="d-block img-fluid">
+          <div class="carousel-caption">
+            <h3 class="display-4">In the distance</h3>
+            <p>A place where you can see the best of nature with a relaxing and luxurious stay.</p>
+          </div>
+        </div>
+      </div>
+      <a href="#carousel" class="carousel-control-prev" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a href="#carousel" class="carousel-control-next" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </section>
+</div>
+
+<div class="container d-flex justify-content-center align-items-center">
+  <section id="section-pricing">
+  <h2 class="display-4 text-center">Hot Deals</h2>
+    <div class="row">
+      <div class="col-12 col-md-4 mb-4">
+        <div class="card card-outline-light">
+          <div class="card-header text-dark text-center">
+            <h2>On Flight Bookings</h2>
+            <h4>15% Discount</h4>
+          </div>
+          <div class="card-body">
+            <p class="card-text">For US Bangla Airline ticket booking</p>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item"><i class="fa fa-fw fa-paint-brush" aria-hidden="true"></i> On base fare, for bKash payment.</li>
+            <li class="list-group-item"><i class="fa fa-fw fa-instagram" aria-hidden="true"></i> Till 30 Jun’23.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 mb-4">
+        <div class="card card-outline-light">
+          <div class="card-header text-dark text-center">
+            <h2>On Domestic Hotel Bookings for bKash</h2>
+            <h4>10% Discount</h4>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item"><i class="fa fa-fw fa-paint-brush" aria-hidden="true"></i> Till 30 Jun '23.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 mb-4">
+        <div class="card card-outline-light">
+          <div class="card-header text-dark text-center">
+            <h2>On Int’l Flight Bookings</h2>
+            <h4>Upto 2,000 taka off</h4>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item"><i class="fa fa-fw fa-paint-brush" aria-hidden="true"></i> On base fare, for City Bank American Express® Platinum & Gold credit cards. Till 31 Dec’23</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="container">
+<section >
+  <p>Travel to Kashmir SONMARG with Nemesis:</p>
+  <div class="embed-responsive embed-responsive-16by9">
+    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/47AzGOBDe-Y?start=11" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+</section>
+</div>
+</section>
+<div class="container d-flex justify-content-center align-items-center">
+  <section id="reviews">
+    <h2 class="display-4">What our customers say about us</h2>
+    <blockquote class="blockquote">
+      <p>The travel booking site you can trust to find the perfect trip for you and your family!</p>
+      <footer class="blockquote-footer">Asif Khan Pranto <time datetime="2017-06-15T14:35">(June 15, 2017 14:35)</time></footer>
+    </blockquote>
+    <blockquote class="blockquote">
+      <p>Planning a trip will never be easier—expert travel advice, the best prices and deals, and super-fast service all in one place. Book now on Nemesis.com</p>
+      <footer class="blockquote-footer">Robin Khan <time datetime="2017-07-09T19:12">(July 9, 2017 19:12)</time></footer>
+    </blockquote>
+    <blockquote class="blockquote">
+      <p>I absolutely love this booking site! It's user-friendly, and I can easily find and book hotels for my travels. The customer support is also fantastic, always ready to assist with any inquiries. Highly recommended!</p>
+      <footer class="blockquote-footer">Tashfia Hasan Borsha <time datetime="2017-09-01T11:19">(September 1, 2017 11:19)</time></footer>
+    </blockquote>
+    <blockquote class="blockquote">
+      <p>I had a fantastic experience using this booking site for my recent vacation. The site provided a seamless booking process, and the confirmation emails were prompt and informative. The hotel I stayed in exceeded my expectations, and I will definitely be using this site for my future travels.</p>
+      <footer class="blockquote-footer">Maysha Tahseen <time datetime="2017-08-12T08:43">(August 12, 2017 8:43)</time></footer>
+    </blockquote>
+  </section>
+</div>
+
+<footer class="bg-dark text-light">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>About Us</h5>
+        <p>Based in Dhaka. We are operating from 2023. We are a passionate team dedicated to revolutionizing the way people travel. With our cutting-edge technology, curated accommodations, and personalized service, we strive to create unforgettable experiences for our customers and make their dreams a reality.</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="{% url 'users:discount'%}">Discount</a></li>
+          <li><a href="{% url 'users:tour_packages'%}">Tour Packages</a></li>
+          <li><a href="{% url 'users:complain'%}">File a complaint</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Contact</h5>
+        <ul class="list-unstyled">
+          <li><i class="fas fa-map-marker-alt"></i> 123 Uttara, Dhaka, Bangladesh</li>
+          <li><i class="fas fa-envelope"></i> support@nemesis.com</li>
+          <li><i class="fas fa-phone"></i> +880-154-22XXX13</li>
+          <li>
+            <a href="https://www.facebook.com/nemesis" target="_blank" class="btn btn-primary btn-light btn-social"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="https://www.instagram.com/nemesis" target="_blank" class="btn btn-primary btn-light btn-social"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://www.youtube.com/nemesis" target="_blank" class="btn btn-primary btn-light btn-social"><i class="fab fa-youtube"></i> YouTube</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <p class="text-center">&copy; 2023 NEMESIS. All rights reserved.</p>
+  </div>
+</footer>
+
+
+
+
+{% endblock %}

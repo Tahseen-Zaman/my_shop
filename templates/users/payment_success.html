@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <section
+      class="jumbotron jumbotron-fluid"
+      style="
+        background-image: url('{% static 'images/011.jpg' %}');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div class="container">
+        <h1 class="display-1">Nemesis</h1>
+        <p class="display-4">Where Adventure Meets Accommodation</p>
+        <p class="lead">
+          Welcome! Please select a vehicle and choose your preferred seat on the
+          next page
+        </p>
+        <p class="lead">
+          Some vehicles may have different seating sections or classes, so choose
+          the appropriate section if applicable
+        </p>
+        <p><strong>Please Explore more:</strong></p>
+        <a href="{% url 'tickets:search_travels' %}" class="btn btn-lg btn-primary"
+          >Search a Ticket</a
+        >
+      </div>
+    </section>
+    </div>
+  </div>
+<div class="container">  
+<h1>Payment Successful</h1>
+<p>Payment ID: {{ payment.transaction_id}}</p>
+<p>Amount: {{ payment.amount }}</p>
+<p>Status: {{ payment.status }}</p>
+</div>
+{% endblock %}

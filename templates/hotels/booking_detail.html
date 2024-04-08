@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static%}
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <strong>Booking Details:</strong>
+          </div>
+          <div class="card-body">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>Booking Number</th>
+                  <th>{{ booking.booking_id }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Rooms:</td>
+                  <td><p> 
+                      {% for room in booking.room.all %}
+                         Room - {{ room.room_number }}{% if not forloop.last %}, {% endif %}
+                      {% endfor %}
+                      </p></td>
+                </tr>
+                <tr>
+                  <td>Check in Date:</td>
+                  <td>{{ booking.check_in_date }}</td>
+                </tr>
+                <tr>
+                  <td>Check out Date:</td>
+                  <td>{{ booking.check_out_date }}</td>
+                </tr>
+                <tr>
+                  <td>Total Price:</td>
+                  <td>{{ booking.total_price }}</td>
+                </tr>
+                <tr>
+                  <td>Created on:</td>
+                  <td>{{ booking.created }}</td>
+                </tr>
+                <tr>
+                  <td>Payment for the Booking:</td>
+                  <td><strong>{{ booking.payment.status }}</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h2>Contact Information</h2>
+        <hr>
+        <p><strong>Name:</strong> {{ booking.user.username }}</p>
+        <p><strong>Email:</strong> {{ booking.user.email }}</p>
+        <p><strong>Phone:</strong> {{ booking.user.profile.phone_number }}</p>
+        <p><strong>Address:</strong> {{ booking.user.profile.address }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center align-items-center">
+    <a href="{% url 'users:make_payment_booking' booking.booking_id %}" class="btn btn-lg btn-primary">Make Payment</a>
+  </div> 
+  </br>
+  <div class="container">
+    <section
+      class="jumbotron jumbotron-fluid"
+      style="
+        background-image: url('{% static 'images/011.jpg' %}');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div class="container">
+        <h1 class="display-1">Nemesis</h1>
+        <p class="display-4">Where Adventure Meets Accommodation</p>
+        <p class="lead">
+          Welcome! Please select a vehicle and choose your preferred seat on the
+          next page
+        </p>
+        <p class="lead">
+          Some vehicles may have different seating sections or classes, so choose
+          the appropriate section if applicable
+        </p>
+        <p><strong>Please Explore more:</strong></p>
+        <a href="{% url 'tickets:search_travels' %}" class="btn btn-lg btn-primary"
+          >Search a Ticket</a
+        >
+      </div>
+    </section>
+    </div> 
+{% endblock %}

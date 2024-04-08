@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <title>HOTEL VOUCHER</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            font-family: 'Myriad Pro', sans-serif;
+        }
+
+        div.table {
+            display: table;
+            border: 2px solid #dbdde0;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        div.table-row {
+            display: table-row;
+        }
+
+        div.table-cell {
+            display: table-cell;
+            vertical-align: top;
+            padding: 10px;
+        }
+
+        div.table-cell.no-content {
+            width: 0;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .header {
+            border-bottom: 2px solid #dbdde0;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            width: 100%;
+        }
+
+        .header .brand-logo {
+            width: 135px;
+        }
+
+        .voucher {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .text-grey {
+            color: #5d6974;
+        }
+
+        .hotel-info {
+            margin-bottom: 20px;
+        }
+
+        .hotel-info .hotel-image {
+            width: 250px;
+        }
+
+        .hotel-info .hotel-image img {
+            width: 100%;
+        }
+
+        .hotel-info .table-cell p {
+            margin-bottom: 8px;
+        }
+
+        .heading {
+            margin-bottom: 10px;
+        }
+
+        .contact-table {
+            margin-bottom: 20px;
+        }
+
+        .contact-table .table-row:first-child .table-cell {
+            background-color: #dbdde0;
+            color: #5d6974;
+        }
+
+        .check-in-out .table-row:nth-child(2) .table-cell {
+            background-color: #dbdde0;
+            color: #5d6974;
+        }
+
+        .check-in-out {
+            margin-bottom: 20px;
+        }
+
+        .payment {
+            margin-bottom: 20px
+        }
+
+        .payment .table-cell {
+            background-color: #dbdde0;
+        }
+
+        .payment .table-row .table-cell:last-child {
+            text-align: right;
+        }
+
+        .relative {
+            position: relative;
+            padding-top: 40px;
+        }
+
+        .table-row-full {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+        }
+
+        .table-cell-full {
+            display: block;
+            padding: 10px;
+        }
+
+        .disclaimer {
+            padding: 0 10px 10px;
+            margin-bottom: 20px;
+            margin-top: -15px;
+        }
+
+        .icon {
+            max-width: 15px;
+            margin-right: 5px;
+            vertical-align: baseline;
+        }
+
+        .contact {
+            margin-right: 15px;
+            display: inline-block;
+        }
+
+        .hotel-terms {
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            border-top: 2px solid #0c80b5;
+            padding-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body data-gr-ext-installed="" data-new-gr-c-s-check-loaded="14.1034.0">
+    <div style="width: 100%; height: 100%; position: relative">
+        <div class="header">
+            <img class="brand-logo"
+                src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/Logo/GoZayaan_logo_small.png" />
+            <p class="text-grey">www.gozayaan.com</p>
+        </div>
+
+        <div class="voucher">
+            <h4 class="heading">Voucher/Accommodation</h4>
+
+            <p class="text-grey">
+                Booking confirmed and guaranteed - Voucher - Hotel
+            </p>
+        </div>
+
+        <div class="table hotel-info">
+            <div class="table-row">
+                <div class="table-cell hotel-image">
+                    <img alt="image of resort" src="{{ hotel_image }}" />
+                </div>
+
+                <div class="table-cell">
+                    <h4 class="heading">{{ hotel_name }}</h4>
+
+                    <p class="text-grey">{{ hotel_address }}</p>
+
+                    <p>
+                        <img class="icon"
+                            src="https://go-zayaan-hotels.s3-ap-southeast-1.amazonaws.com/template_assets/star.svg" />{{hotel_rating }}
+                    </p>
+
+                    <p class="text-grey">
+                        <span class="contact">Telephone: {{ hotel_phone }}</span>
+                        <span class="contact">Fax: {{ hotel_fax }}</span><br />
+                        <span class="contact">Email: {{ hotel_email }}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="table contact-table">
+            <div class="table-row">
+                <div class="table-cell">Primary Contact</div>
+
+                <div class="table-cell">Booking ID</div>
+
+                <div class="table-cell">Hotel Reference</div>
+
+                <div class="table-cell">Reservation Issue Date</div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">
+                    <p>{{ primary_contact }}</p>
+                </div>
+
+                <div class="table-cell">
+                    <p>{{ gz_reference }}</p>
+                </div>
+
+                <div class="table-cell">
+                    <p>{{ hotel_reference }}</p>
+                </div>
+
+                <div class="table-cell">
+                    <p>{{ reservation_date }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="table check-in-out relative">
+            <div class="table-row-full">
+                <div class="table-cell-full">
+                    <span>Check-in: {{ check_in }}</span> -
+                    <span>Check-out: {{ check_out }}</span>
+                </div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">Room type</div>
+
+                {% if is_expedia_hotel %}
+                <div class="table-cell">Bed Type</div>
+                {% endif %}
+                <div class="table-cell">Adults</div>
+
+                <div class="table-cell">Child</div>
+
+                <div class="table-cell">Board</div>
+            </div>
+            {% for room in room_voucher_details %}
+
+            <div class="table-row">
+                <div class="table-cell">
+                    <p>{{ room.room_name }}</p>
+                </div>
+
+                {% if is_expedia_hotel %}
+                <div class="table-cell">
+                    <p>{{ room.bed_type }}</p>
+                </div>
+                {% endif %}
+                <div class="table-cell">
+                    <p>{{ room.adult }}</p>
+                </div>
+                <div class="table-cell">
+                    <p>{{ room.child }}</p>
+                </div>
+                {% if is_expedia_hotel %}
+                <div class="table-cell">
+                    {% if room.included %}
+                    {% for included in room.included %}
+                    <p>{{ included }}</p>
+                    {% endfor %}
+                    {% else %}
+                    <p>{{ room.board }}</p>
+                    {% endif %}
+                </div>
+                {% else %}
+                <div class="table-cell">
+                    <p>{{ room.board }}</p>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">
+                    <span class="text-grey">Guest name: </span>
+                    <span>{{ room.customer_name }}</span>
+                </div>
+            </div>
+            {% if room.remarks %}
+
+            <div class="table-row">
+                <div class="table-cell">
+                    <span class="text-grey">Note: </span>
+                    <span style="color: #000">{{ room.remarks }}</span>
+                </div>
+            </div>
+            {% endif %} {% endfor %}
+        </div>
+        {% if addons_list %}
+        <div class="table check-in-out relative">
+            {% for addon in addons_list %} {% if forloop.first %}
+            <div class="table-row-full">
+                <div class="table-cell-full"><span>Add-ons</span></div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">Items</div>
+
+                <div class="table-cell">Unit</div>
+            </div>
+            {% endif %}
+
+            <div class="table-row">
+                <div class="table-cell">
+                    <p>{{ addon.name }}</p>
+                </div>
+
+                <div class="table-cell">
+                    <p>{{ addon.details }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if is_expedia_hotel == False %}
+        <div class="table payment">
+            <div class="table-row">
+                <div class="table-cell">
+                    <p>Payment</p>
+                </div>
+
+                <div class="table-cell">
+                    <span style="font-weight: bold">({{ rate_class }}) {{ payable_amount }}</span>
+                </div>
+            </div>
+        </div>
+         {% endif %}
+        <div class="disclaimer">
+            {% if is_gozayaan_hotel %}
+            <p>&nbsp;</p>
+            {% elif is_expedia_hotel %}
+            <p>&nbsp;</p>
+            {% else %}
+
+            <p class="text-grey">
+                Payable through {{ supplier_name }}, acting as agent for the service
+                operating company, details of which can be provided upon request. VAT:
+                {{ vat_number }}. Reference: {{ hotel_reference }}
+            </p>
+            {% endif %}
+        </div>
+
+        <div class="table hotel-terms">
+            <div class="table-row">
+                <div class="table-cell">
+                    <p style="color: #5d6974">Hotel Terms and conditions</p>
+                </div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">
+                    <p style="color: #000; margin-bottom: 5px">
+                        {% if is_gozayaan_hotel %} * Please carry NID/Passport/Driving
+                        Licence and Vaccine Certificate for each guest to the property. It
+                        is required to complete your check-in
+                        {% elif is_expedia_hotel %} Bed type preference is subject to availability at checkin in case of
+                        multiple bed options
+                        {% else %} Not available
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <p style="
+          color: #000;
+          background-color: #eef1f6;
+          font-size: 14px;
+          line-height: 22px;
+          padding: 10px 0;
+        ">
+            * Anything not mentioned in the voucher (e.g.- extra bed payment, child
+            policy payments, foods, beverages, add ons etc.) will be charged by the
+            property and have to be settled by the customer at property as per the
+            house rules. GoZayaan bears no responsibility for such payments and will
+            not accept or settle them with either party.
+        </p>
+
+        <div class="footer" style="
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          margin-bottom: 10px;
+          padding: 16px 0;
+        ">
+            <div class="line">&nbsp;</div>
+
+            <h4 class="heading">GoZayaan Limited</h4>
+            {% if region == "BD" %}
+            <p>
+                Level 5, House 1A, Road No. 16/A,<br />
+                Gulshan 1, Dhaka 1212.
+            </p>
+            {% else %}
+            <p>
+                Kickstart, 189, Korang Road,<br />
+                GI-10/3 Islamabad.
+            </p>
+            {% endif %}
+
+            <p>
+                {% if region == "BD"%}
+
+                <span class="contact"><img class="icon"
+                        src="https://go-zayaan-hotels.s3-ap-southeast-1.amazonaws.com/template_assets/phone.svg" />+88
+                    09678 332211</span>
+                <span class="contact"><img class="icon"
+                        src="https://go-zayaan-hotels.s3-ap-southeast-1.amazonaws.com/template_assets/email.svg" />
+                    info@gozayaan.com</span>
+                {% else %}
+                <span class="contact"><img class="icon"
+                        src="https://go-zayaan-hotels.s3-ap-southeast-1.amazonaws.com/template_assets/phone.svg" />+92
+                    333 0596362</span>
+                <span class="contact"><img class="icon"
+                        src="https://go-zayaan-hotels.s3-ap-southeast-1.amazonaws.com/template_assets/email.svg" />
+                    help@gozayaan.com</span>
+                {% endif %}
+            </p>
+        </div>
+    </div>
+
+    <div style="width: 100%; height: 100%; position: relative">
+        <div class="header">
+            <img class="brand-logo"
+                src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/Logo/GoZayaan_logo_small.png" />
+            <p class="text-grey">www.gozayaan.com</p>
+        </div>
+
+        <div class="content" style="width: 100%; margin: 0 auto">
+            <!--cancellation policy-->
+            <table style="
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 15px;
+            font-size: 14px;
+          ">
+                <tbody>
+                    {% for room in room_cancel_policy %}{% if forloop.first %}
+                    <tr>
+                        <td colspan="100%" style="
+                  padding: 10px 0;
+                  color: #000;
+                  font-size: 16px;
+                  font-weight: bold;
+                ">
+                            Cancellation Policy
+                        </td>
+                    </tr>
+                    {% endif %}
+                    <tr>
+                        <td style="padding: 0 10px; color: #5d5d5d; line-height: 26px">
+                            <p>{{ room.room_name }}</p>
+                        </td>
+                    </tr>
+                    {% for room_no, policies in room.room_policy.items %}
+                    <tr>
+                        <td style="padding: 0 10px; color: #5d5d5d; line-height: 26px">
+                            <p>Room {{ room_no }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0 10px; color: #5d5d5d; line-height: 26px">
+                            <ul style="padding-left: 15px; margin: 0;">
+                                {% for policy in policies %}
+                                <li style="margin-bottom: 5px">{{ policy }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                {% endfor %}
+            </table>
+            <!--child policy-->
+            {% if child_policy %}
+
+            <table style="
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 15px;
+            font-size: 14px;
+          ">
+                <tbody>
+                    <tr>
+                        <td colspan="100%" style="
+                  padding: 10px 0;
+                  color: #000;
+                  font-size: 16px;
+                  font-weight: bold;
+                ">
+                            Child Policy
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0 10px; color: #5d5d5d; line-height: 26px">
+                            <p>{{ child_policy|safe }}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            {% endif %}
+            {% if is_expedia_hotel %}
+            {% if check_in_instruction or special_instruction %}
+            <table style="
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 15px;
+            font-size: 14px;
+          ">
+                <tbody>
+                    {% if check_in_instruction %}
+                    <tr>
+                        <td colspan="100%" style="
+                  padding: 10px 0;
+                  color: #000;
+                  font-size: 16px;
+                  font-weight: bold;
+                ">
+                            Check In Instructions
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0 10px; color: #5d5d5d; line-height: 26px">
+                            <p>{{ check_in_instruction|safe }}</p>
+                        </td>
+                    </tr>
+                    {% endif %}
+                    {% if special_instruction %}
+                    <tr>
+                        <td colspan="100%" style="
+                  padding: 10px 0;
+                  color: #000;
+                  font-size: 16px;
+                  font-weight: bold;
+                ">
+                            Special Instructions
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0 10px; color: #5d5d5d; line-height: 26px">
+                            <p>{{ special_instruction|safe }}</p>
+                        </td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            {% endif %}
+            {% endif %}
+            {% if is_expedia_hotel %}
+            {% if mandatory_fees or optional_fees %}
+            <table style="
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 15px;
+            font-size: 14px;
+          ">
+                <tbody>
+                    <tr>
+                        <td colspan="100%" style="
+                  padding: 10px 0;
+                  color: #000;
+                  font-size: 16px;
+                  font-weight: bold;
+                ">
+                            Fees
+                        </td>
+                    </tr>
+                    {% if optional_fees %}
+                    <tr>
+                        <td style="padding: 0 10px; color: #5d5d5d; line-height: 26px">
+                            <p>Optional: {{ optional_fees|safe }}</p>
+                        </td>
+                    </tr>
+                    {% endif %}
+                    {% if mandatory_fees %}
+                    <tr>
+                        <td style="padding: 0 10px; color: #5d5d5d; line-height: 26px">
+                            <p>Mandatory: {{ mandatory_fees|safe }}</p>
+                        </td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            {% endif %}
+            {% endif %}
+        </div>
+        <!--footer-->
+        {% if region == "BD" %}
+        <div class="footer" style="
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          margin-bottom: 10px;
+          padding: 16px 0;
+        ">
+            <div class="line">&nbsp;</div>
+
+            <h4 class="heading">GoZayaan Limited</h4>
+
+            <p>
+                Level 5, House 1A, Road No. 16/A,<br />
+                Gulshan 1, Dhaka 1212.
+            </p>
+
+            <p>
+                <span class="contact"><img class="icon"
+                        src="https://go-zayaan-hotels.s3-ap-southeast-1.amazonaws.com/template_assets/phone.svg" />+88
+                    09678 332211</span>
+                <span class="contact"><img class="icon"
+                        src="https://go-zayaan-hotels.s3-ap-southeast-1.amazonaws.com/template_assets/email.svg" />
+                    info@gozayaan.com</span>
+            </p>
+        </div>
+        {% else %}
+        <div class="footer" style="
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          margin-bottom: 10px;
+          padding: 16px 0;
+        ">
+            <div class="line">&nbsp;</div>
+
+            <h4 class="heading">GoZayaan Limited</h4>
+
+            <p>
+                Kickstart, 189, Korang Road,<br />
+                I-10/3 Islamabad.
+            </p>
+
+            <p>
+                <span class="contact"><img class="icon"
+                        src="https://go-zayaan-hotels.s3-ap-southeast-1.amazonaws.com/template_assets/phone.svg" />+92
+                    333 0596362</span>
+                <span class="contact"><img class="icon"
+                        src="https://go-zayaan-hotels.s3-ap-southeast-1.amazonaws.com/template_assets/email.svg" />
+                    help@gozayaan.com</span>
+            </p>
+        </div>
+        {% endif %}
+    </div>
+    <div style="width: 100%; height: 100%; position: relative">
+        <div class="header">
+            <img class="brand-logo"
+                src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/Logo/GoZayaan_logo_small.png" />
+            <p class="text-grey">www.gozayaan.com</p>
+        </div>
+        <!-- Policy -->
+        {% if esp_policy %}
+        <table style="
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 15px;
+            font-size: 14px;
+          ">
+            <tbody>
+                <tr>
+                    <td colspan="100%" style="
+                  padding: 10px 0;
+                  color: #000;
+                  font-size: 16px;
+                  font-weight: bold;
+                ">
+                        Policy
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 0 10px; color: #5d5d5d; line-height: 26px">
+                        <p>{{ esp_policy|safe }}</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        {% endif %}
+        <!--pet policy-->
+        {% if pet_policy %}
+
+        <table style="
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 15px;
+            font-size: 14px;
+          ">
+            <tbody>
+                <tr>
+                    <td colspan="100%" style="
+                  padding: 10px 0;
+                  color: #000;
+                  font-size: 16px;
+                  font-weight: bold;
+                ">
+                        Pet Policy
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 0 10px; color: #5d5d5d; line-height: 26px">
+                        <p>{{ pet_policy|safe }}</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        {% endif %}
+        <!--house Rules-->
+        {% if house_rules %}
+
+        <table style="
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 15px;
+            font-size: 14px;
+          ">
+            <tbody>
+                <tr>
+                    <td colspan="100%" style="
+                  padding: 10px 0;
+                  color: #000;
+                  font-size: 16px;
+                  font-weight: bold;
+                ">
+                        House Rules
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 0 10px; color: #5d5d5d; line-height: 26px">
+                        <p>{{ house_rules|safe }}</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        {% endif %}
+        <div class="footer" style="
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                margin-bottom: 10px;
+                padding: 16px 0;
+                ">
+            <div class="line">&nbsp;</div>
+
+            <h4 class="heading">GoZayaan Limited</h4>
+            {% if region == "BD" %}
+            <p>
+                Level 5, House 1A, Road No. 16/A,<br />
+                Gulshan 1, Dhaka 1212.
+            </p>
+            {% else %}
+            <p>
+                Kickstart, 189, Korang Road,<br />
+                GI-10/3 Islamabad.
+            </p>
+            {% endif %}
+
+            <p>
+                {% if region == "BD"%}
+
+                <span class="contact"><img class="icon"
+                        src="https://go-zayaan-hotels.s3-ap-southeast-1.amazonaws.com/template_assets/phone.svg" />+88
+                    09678 332211</span>
+                <span class="contact"><img class="icon"
+                        src="https://go-zayaan-hotels.s3-ap-southeast-1.amazonaws.com/template_assets/email.svg" />
+                    info@gozayaan.com</span>
+                {% else %}
+                <span class="contact"><img class="icon"
+                        src="https://go-zayaan-hotels.s3-ap-southeast-1.amazonaws.com/template_assets/phone.svg" />+92
+                    333 0596362</span>
+                <span class="contact"><img class="icon"
+                        src="https://go-zayaan-hotels.s3-ap-southeast-1.amazonaws.com/template_assets/email.svg" />
+                    help@gozayaan.com</span>
+                {% endif %}
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

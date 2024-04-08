@@ -1,0 +1,1129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <title>HOTEL VOUCHER</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            font-family: Avenir Next, 'Gilroy', Helvetica, Lato, Tahoma, Open Sans, Verdana, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            padding: 0 25px;
+        }
+
+        .font-10 {
+            font-size: 10px;
+        }
+
+        .line-height-16 {
+            line-height: 16px;
+        }
+
+        div.table {
+            display: table;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        div.table-row {
+            display: table-row;
+        }
+
+        div.table-cell {
+            display: table-cell;
+            vertical-align: top;
+            padding: 10px;
+        }
+
+        div.table-cell.no-content {
+            width: 0;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .text-grey {
+            color: #5d6974;
+        }
+
+        .booking-info {
+            background-color: #ffffff;
+            border: 1px solid #ECF3FE;
+            border-radius: 5px;
+            padding-right: 33px;
+            color: #0E227B;
+        }
+
+        .booking-info .table-row .table-cell p:first-child {
+            font-size: 9px;
+            line-height: 1.5;
+        }
+
+        .booking-info .table-row .table-cell p:last-child {
+            font-size: 14px;
+        }
+
+        .hotel-info {
+            margin-bottom: 20px;
+            background-color: #ECF3FE;
+            border-radius: 5px;
+            height: 100%;
+        }
+
+        .hotel-info .heading {
+            color: #1C3C6B;
+        }
+
+        .hotel-info .hotel-image {
+            width: 80px;
+            height: 100%;
+            margin-left: auto;
+        }
+
+        .hotel-info .hotel-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        .hotel-info .table-cell p:not(:last-child) {
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: #0E227B;
+            text-decoration: none;
+        }
+
+        .heading {
+            margin-bottom: 6px;
+            font-size: 12px;
+        }
+
+        .primary-contact {
+            border-radius: 5px;
+            border: 1px solid #ECF3FE;
+        }
+
+        .primary-contact .heading {
+            padding: 12px 10px 4px 10px;
+            color: #5D6974;
+        }
+
+        .contact-table {
+            font-size: 9px;
+        }
+
+        .contact-table .table-row:first-child .table-cell {
+            background-color: #ECF3FE;
+            color: #0E227B;
+            font-weight: 400;
+        }
+
+        .contact-table .table-row:last-child .table-cell {
+            font-weight: 500;
+        }
+
+        .check-in-out-container {
+            border-radius: 5px;
+            border: 1px solid #ECF3FE;
+        }
+
+        .check-in-out-header {
+            font-size: 10px;
+            padding: 8px 10px;
+        }
+
+        .check-in-out-header .table-row .table-cell {
+            padding: 0;
+            vertical-align: middle;
+        }
+
+        .check-in-out-header .table-row .table-cell:last-child {
+            text-align: end;
+        }
+
+        .check-in-out-header .title {
+            font-weight: 600;
+            color: #1C3C6B;
+        }
+
+        .check-in-out-header .time {
+            color: #3A4856;
+            line-height: 18px;
+            padding-left: 2px;
+        }
+
+        .check-in-out-header .night {
+            border-radius: 3px;
+            border: 1px solid #E1E8EE;
+            background-color: #F8FAFC;
+            color: #022738;
+            font-weight: 500;
+            text-align: center;
+            padding: 2px;
+        }
+
+        .check-in-out .table-row:first-child .table-cell {
+            background-color: #ECF3FE;
+            color: #0E227B;
+            font-weight: 400;
+        }
+
+        .check-in-out .table-row:not(:first-child):not(:last-child) .table-cell {
+            border-bottom: 0.5px solid #BCC9DC;
+        }
+
+        .check-in-out .table-row:not(:first-child) .table-cell {
+            color: #022738;
+            font-weight: 500;
+            line-height: 16px;
+        }
+
+        .check-in-out {
+            font-size: 9px;
+        }
+
+        .check-in-out .table-row .table-cell .child {
+            border-radius: 3px;
+            background: #DBDDE0;
+            text-transform: capitalize;
+            color: #022738;
+            font-size: 9px;
+            font-weight: 500;
+            padding: 2px 4px;
+            margin-left: 3px;
+        }
+
+        .payment .table-cell {
+            background-color: #dbdde0;
+        }
+
+        .payment .table-row .table-cell:last-child {
+            text-align: right;
+        }
+
+        .icon {
+            max-width: 15px;
+            margin-right: 10px;
+            vertical-align: middle;
+            margin-top: -2.5px;
+        }
+
+        .contact {
+            margin-right: 15px;
+            display: inline-block;
+        }
+
+        .contact-us .table-row .table-cell.contact-details {
+            border: none;
+            padding: 10px;
+        }
+
+        .contact-ref {
+            display: inline-block;
+            width: 100%;
+            height: 60px;
+            border: 1px solid #ECF3FE;
+            border-radius: 5px;
+            padding: 15px;
+            color: #1c3c6b;
+        }
+
+        .contact-details .contact-ref a {
+            text-decoration: none;
+            color: #1c3c6b;
+        }
+
+        .contact-us {
+            padding-top: 16px;
+            width: 100%;
+        }
+
+        .content {
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 24px;
+        }
+
+        .contact-us .table-row .table-cell {
+            text-align: center;
+            font-size: 10px;
+            font-weight: 600;
+            line-height: 22px;
+            vertical-align: middle;
+            width: 33.33%;
+        }
+
+        .customer-note {
+            border-radius: 5px;
+            border: 1px solid #4073BF;
+            margin-top: 16px;
+        }
+
+        .customer-note .table-row .table-cell p:first-child {
+            font-size: 12px;
+            font-weight: 600;
+            padding-bottom: 6px;
+        }
+
+        .customer-note .table-row .table-cell p:last-child {
+            font-size: 10px;
+            line-height: 18px;
+        }
+
+        .important-information .title,
+        .terms-conditions .title,
+        .cancellation-policy .title {
+            font-size: 12px;
+            font-weight: 600;
+            padding-top: 16px;
+            padding-bottom: 7px;
+            color: #022738;
+            text-transform: capitalize;
+        }
+
+        ul li {
+            list-style-type: disc;
+            list-style-position: inside;
+            text-indent: -16px;
+            padding-left: 16px;
+            color: #022738;
+            font-size: 10px;
+            line-height: 16px;
+            margin-bottom: 6px;
+        }
+
+        ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        ul li::before {
+            display: table-cell;
+            text-align: right;
+            padding-right: .3em;
+        }
+
+        ol li {
+            list-style-position: inside;
+        }
+
+        .footer {
+            background-color: #ECF3FE;
+            padding: 20px 25px 14px;
+            margin-top: 14px;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .footer .table-row .table-cell {
+            padding: 0;
+        }
+
+        .footer .table-row .table-cell p {
+            padding-bottom: 12px;
+            font-size: 12px;
+            color: #3A4856;
+        }
+
+        .footer .table-row .table-cell:first-child p {
+            padding-left: 36px;
+        }
+
+        .footer .table-row .table-cell:nth-child(1) {
+            width: 50%;
+        }
+
+        .footer .table-row .table-cell:last-child {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width: 100%; min-height: 100%; position: relative; background-color: #FFFFFF;">
+        <!--header-->
+        <table cellpadding="0" cellspacing="0" border="0" style="
+          width: 100%;
+          background-color: #0e227b;
+          color: #fff;
+        ">
+            <tr>
+                <td style="padding: 23px 25px">
+                    <a href="https://www.gozayaan.com/" target="_blank">
+                        <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/gozayaan-logo-white.png"
+                            alt="gozayaan-logo" style="display: block; width: 95px" />
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <!--end of header-->
+        <!-- booking id -->
+        <div class="container" style="padding-top: 20px;">
+            <div class="table booking-info">
+                <div class="table-row">
+                    <div class="table-cell">
+                        <p>Booking ID</p>
+                        <p style="font-weight: 600;">{{hotel_booking_id}}</p>
+                    </div>
+                    <div class="table-cell" style="text-align: right;">
+                        <div style="display: inline-block; text-align: left;">
+                            <p>Hotel Reference</p>
+                            <p style="font-weight: 600;">{{hotel_reference}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end of booking id -->
+        <div class="container" style="padding-top: 16px;">
+            <!-- hotel info -->
+            <div class="table hotel-info">
+                <div class="table-row">
+                    <div class="table-cell">
+                        <h4 class="heading">{{hotel_name}}</h4>
+                        <div class="text-grey font-10 line-height-16" style="padding-bottom: 6px;">
+                            <span style="padding-right: 16px; display: inline-block;">
+                                {{hotel_address}}
+                            </span>
+                            <div style="display: inline-block"></div>
+                            <a href={{map_hotel}} target="_blank" class="view-map">
+                                <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/email/map.png"
+                                    alt="map-logo" style="width: 12px; vertical-align: middle;" />
+                                <span style="padding-left: 3px; text-decoration: underline; font-weight: 500;">
+                                    View in Map
+                                </span>
+                            </a>
+                        </div>
+                        <p class="text-grey font-10">
+                            <a href="tel:09610777888" target="_blank">
+                                <span class="text-grey contact">Phone Number: {{hotel_phone}}</span>
+                            </a>
+                            <a href="mailto:reservation@sayemanresort.com">
+                                <span class="text-grey contact">Email: {{hotel_email}}</span>
+                            </a>
+                        </p>
+                    </div>
+                    <div class="table-cell">
+                        <div class="hotel-image">
+                            <img alt="image of resort" src="hotel.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of hotel info -->
+            <!-- primary contact -->
+            <div class="primary-contact">
+                <h4 class="heading">Primary Contact</h4>
+                <div class="table contact-table" style="table-layout: fixed;">
+                    <div class="table-row">
+                        <div class="table-cell">Name</div>
+                        <div class="table-cell">Phone Number</div>
+                        <div class="table-cell">Email</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell">
+                            <p>{{primary_contact}}</p>
+                        </div>
+                        <div class="table-cell">
+                            <a href="tel:880 1674083578" target="_blank" style="color: #022738;">
+                                {{primary_contact_phone}}
+                            </a>
+                        </div>
+                        <div class="table-cell">
+                            <a href="mailto:azim2779@gmail.com" target="_blank" style="color: #022738;">
+                                {{primary_contact_email}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of primary contact -->
+            <!-- check in out -->
+            <div class="check-in-out-container" style="margin-top: 16px;">
+                <div class="table check-in-out-header">
+                    <div class="table-row">
+                        <div class="table-cell">
+                            <p>
+                                <span class="title">CHECK-IN:</span>
+                                <span class="time">{{check_in}}</span>
+                            </p>
+                        </div>
+                        <div class="table-cell">
+                            <p class="night">{{nights}} Night{{nights|pluralize:'s'}}</p>
+                        </div>
+                        <div class="table-cell">
+                            <p>
+                                <span class="title">CHECK-OUT:</span>
+                                <span class="time">{{check_out}}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="table check-in-out" style="table-layout: fixed;">
+                    <div class="table-row">
+                        <div class="table-cell">Room</div>
+                        <div class="table-cell">Guests</div>
+                        <div class="table-cell">Plan</div>
+                    </div>
+
+                    {% for room in room_plan_details %}
+                    <div class="table-row">
+                        <div class="table-cell">
+                            <p>{{room.room_name}}</p>
+                        </div>
+                        <div class="table-cell">
+                            <ol>
+                                {% for pax in room.paxes %}                            
+                                <li>
+                                    <span>{{pax.name}}</span>
+                                {% if pax.type == "CH" %}
+                                    <span class="child">child</span>
+                                {% endif %}
+                                </li>
+                                {% endfor %}
+                            </ol>
+                        </div>
+                        <div class="table-cell">
+                            <p>{{room.plan}}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+            <!-- end of check in out -->
+        </div>
+        <!-- footer -->
+        <div class="table footer">
+            <div class="table-row">
+                <div class="table-cell">
+                    <p>
+                        Download GoZayaan App
+                    </p>
+                    <a style="text-decoration: none"
+                        href="https://play.google.com/store/apps/details?id=com.gozayaan.app" target="_blank">
+                        <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/play-store.png"
+                            alt="play-store-icon" style="width: 105px" />
+                    </a>
+                    <a style="text-decoration: none" href="https://apps.apple.com/us/app/gozayaan/id1635126688"
+                        target="_blank">
+                        <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/apple-store-icon.png"
+                            alt="apple-store-icon" style="width: 105px" />
+                    </a>
+                </div>
+                <div class="table-cell">
+                    <span style="
+                display: inline-block;
+                border-right: 1px dashed #bcc9dc;
+                height: 40px;
+                margin-top: 10px;
+              "></span>
+                </div>
+                <!-- BD contact -->
+
+                {% if is_bd_region %}
+                <div class="table-cell">
+                    <p>
+                        Follow Us
+                    </p>
+                    <a href="https://www.facebook.com/GoZayaanBD" style="display: inline-block" target="_blank">
+                        <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/facebook.png"
+                            alt="icon-facebook" style="width: 16px" />
+                    </a>
+                    <a href="https://www.instagram.com/gozayaan/" style="display: inline-block" target="_blank">
+                        <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/instagram.png"
+                            alt="icon-instagram" style="width: 16px" />
+                    </a>
+                    <a href="https://www.linkedin.com/company/gozayaanlimited/" style="display: inline-block"
+                        target="_blank">
+                        <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/LinkedIn.png"
+                            alt="icon-linkedin" style="width: 16px" />
+                    </a>
+                </div>
+                <!-- PK contact -->
+                {% elif is_pk_region %}
+                <div class="table-cell">
+                    <p>
+                    Follow Us
+                    </p>
+                    <a
+                    href="https://www.facebook.com/GoZayaanPK"
+                    style="display: inline-block"
+                    target="_blank"
+                    >
+                    <img
+                        src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/facebook.png"
+                        alt="icon-facebook"
+                        style="width: 16px"
+                    />
+                    </a>
+                    <a
+                    href="https://www.instagram.com/gozayaanpk/"
+                    style="display: inline-block"
+                    target="_blank"
+                    >
+                    <img
+                        src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/instagram.png"
+                        alt="icon-instagram"
+                        style="width: 16px"
+                    />
+                    </a>
+                    <a
+                    href="https://www.linkedin.com/company/gozayaanpk/"
+                    style="display: inline-block"
+                    target="_blank"
+                    >
+                    <img
+                        src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/LinkedIn.png"
+                        alt="icon-linkedin"
+                        style="width: 16px"
+                    />
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <!-- end of footer -->
+    </div>
+    <div style="width: 100%; min-height: 100%; position: relative; background-color: #FFFFFF;">
+        <!--header-->
+        <table cellpadding="0" cellspacing="0" border="0" style="
+        width: 100%;
+        background-color: #0e227b;
+        color: #fff;
+        ">
+            <tr>
+                <td style="padding: 23px 25px">
+                    <a href="https://www.gozayaan.com/" target="_blank">
+                        <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/gozayaan-logo-white.png"
+                            alt="gozayaan-logo" style="display: block; width: 95px" />
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <!--end of header-->
+        <!-- booking id -->
+        <div class="container" style="padding-top: 20px;">
+            <div class="table booking-info">
+                <div class="table-row">
+                    <div class="table-cell">
+                        <p>Booking ID</p>
+                        <p style="font-weight: 600;">{{hotel_booking_id}}</p>
+                    </div>
+                    <div class="table-cell" style="text-align: right;">
+                        <div style="display: inline-block; text-align: left;">
+                            <p>Hotel Reference</p>
+                            <p style="font-weight: 600;">{{hotel_reference}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end of booking id -->
+        <div class="container">
+            <!-- contact us -->
+            <div class="contact-us">
+                <p class="content">If you need any assistance please contact us here</p>
+                <div class="table">
+                    <div class="table-row">
+                        <div class="table-cell contact-details" style="line-height: 10px; padding-left: 0;">
+                            <div class="contact-ref">
+                                {% if is_bd_region %}
+                                <!-- BD contact -->
+                                <a href="tel:+88 09678 332211" target="_blank">
+                                    <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/email/phone.png"
+                                        alt="phone-logo" class="icon" style="margin-top: 10px" width="10px"
+                                        height="10px" />
+                                    <span>+88 09678 332211</span>
+                                </a>
+                                {% elif is_pk_region %}
+                                <!-- PK contact -->
+                                <a href="tel:+92-33-30596362" target="_blank">
+                                    <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/email/phone.png"
+                                        alt="phone-logo" class="icon" style="margin-top: 10px" width="10px"
+                                        height="10px"/>
+                                    <span>+92 33 30596362</span>
+                                </a>
+                                {% endif %}
+                                <p style="margin-left: 20px;">(10am - 10pm)</p>
+                            </div>
+                        </div>
+                        <div class="table-cell contact-details">
+                            <div class="contact-ref" style="padding-top: 18px;">
+                                <!-- BD contact -->
+                                {% if is_bd_region %}
+                                <a href="https://www.m.me/gozayaanbd" target="_blank">
+                                    <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/email/messenger.png"
+                                        alt="messenger-logo" class="icon" width="10px" height="10px" />
+                                    <span>Send Message</span>
+                                </a>
+                                <!-- PK contact -->
+                                {% elif is_pk_region %}
+                                <a href="https://www.m.me/gozayaanpk" target="_blank">
+                                    <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/email/messenger.png"
+                                        alt="messenger-logo" class="icon" width="10px" height="10px" />
+                                    <span>Send Message</span>
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="table-cell contact-details" style="padding-right: 0">
+                            <div class="contact-ref" style="padding-top: 18px;">
+                                <a href="mailto:hotel@gozayaan.com" target="_blank" style="color: #1c3c6b;">
+                                    <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/email/email.png"
+                                        alt="email-logo" class="icon" width="10px" height="8px" />
+                                    <span>hotel@gozayaan.com</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of contact us -->
+            <!-- customer note -->
+            <div class="table customer-note">
+                <div class="table-row">
+                    <div class="table-cell">
+                        <p class="title">Note from the Customer</p>
+                        <p>{{customer_note}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- end of customer note -->
+            <!-- important information -->
+            <div class="important-information">
+                <h4 class="title">Important Information</h4>
+                {% if special_instruction %}
+                <ul>
+                    <li>{{ special_instruction}}</li>
+                </ul>
+                {% else %}
+                <ul>
+                    <li>Bed type preference is subject to availability at check in in case of multiple bed options</li>
+                </ul>
+            {% endif %}
+            </div>
+            <!-- end of important information -->
+            <!-- hotel terms and conditions -->
+            <div class="terms-conditions">
+                <h4 class="title">Hotel Terms & Conditions</h4>
+                <ul>
+                    <li>Please carry NID/Passport/Driving Licence and Vaccine Certificate for each guest to the
+                        property. It is
+                        required to complete your check-in
+                    </li>
+                    <li>Anything not mentioned in the voucher (e.g.- extra bed payment, child policy payments, foods,
+                        beverages, add ons etc.) will be charged by the property and have to be settled by the customer
+                        at property as per the house rules. GoZayaan bears no responsibility for such payments and will
+                        not accept or settle them with either party.</li>
+                </ul>
+            </div>
+            <!-- end of hotel terms and condition -->
+            <!-- cancellation policy -->
+            <div class="cancellation-policy">
+                {% if room_cancel_policy %}
+                <h4 class="title">Cancellation Policy</h4>
+                {% endif %}
+                {% for room in room_cancel_policy %}
+                    {% for room_no, policies in room.room_policy.items %}
+                        <p style="
+                        color: #022738;
+                        font-size: 10px;
+                        line-height: 16px;
+                        padding-bottom: 6px;
+                        text-transform: capitalize;
+                        ">
+                            <span style="font-weight: 600;">{{room.room_name}}</span><br>
+                            <span style="font-weight: 500;">Room {{room_no}}</span>
+                        </p>
+                        <ul>
+                            {% for policy in policies %}
+                            <li>{{policy}}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+            <!-- end of cancellation policy -->
+        </div>
+        <!-- footer -->
+        <div class="table footer">
+            <div class="table-row">
+                <div class="table-cell">
+                    <p>
+                        Download GoZayaan App
+                    </p>
+                    <a style="text-decoration: none"
+                        href="https://play.google.com/store/apps/details?id=com.gozayaan.app" target="_blank">
+                        <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/play-store.png"
+                            alt="play-store-icon" style="width: 105px" />
+                    </a>
+                    <a style="text-decoration: none" href="https://apps.apple.com/us/app/gozayaan/id1635126688"
+                        target="_blank">
+                        <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/apple-store-icon.png"
+                            alt="apple-store-icon" style="width: 105px" />
+                    </a>
+                </div>
+                <div class="table-cell">
+                    <span style="
+                display: inline-block;
+                border-right: 1px dashed #bcc9dc;
+                height: 40px;
+                margin-top: 10px;
+              "></span>
+                </div>
+                <!-- BD contact -->
+                {% if is_bd_region %}
+                <div class="table-cell">
+                    <p>
+                        Follow Us
+                    </p>
+                    <a href="https://www.facebook.com/GoZayaanBD" style="display: inline-block" target="_blank">
+                        <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/facebook.png"
+                            alt="icon-facebook" style="width: 16px" />
+                    </a>
+                    <a href="https://www.instagram.com/gozayaan/" style="display: inline-block" target="_blank">
+                        <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/instagram.png"
+                            alt="icon-instagram" style="width: 16px" />
+                    </a>
+                    <a href="https://www.linkedin.com/company/gozayaanlimited/" style="display: inline-block"
+                        target="_blank">
+                        <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/LinkedIn.png"
+                            alt="icon-linkedin" style="width: 16px" />
+                    </a>
+                </div>
+                <!-- PK contact -->
+                {% elif is_pk_region %}
+                <div class="table-cell">
+						<p>
+							Follow Us
+						</p>
+						<a
+							href="https://www.facebook.com/GoZayaanPK"
+							style="display: inline-block"
+							target="_blank"
+						>
+							<img
+								src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/facebook.png"
+								alt="icon-facebook"
+								style="width: 16px"
+							/>
+						</a>
+						<a
+							href="https://www.instagram.com/gozayaanpk/"
+							style="display: inline-block"
+							target="_blank"
+						>
+							<img
+								src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/instagram.png"
+								alt="icon-instagram"
+								style="width: 16px"
+							/>
+						</a>
+						<a
+							href="https://www.linkedin.com/company/gozayaanpk/"
+							style="display: inline-block"
+							target="_blank"
+						>
+							<img
+								src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/LinkedIn.png"
+								alt="icon-linkedin"
+								style="width: 16px"
+							/>
+						</a>
+					</div>
+                    {% endif %}
+            </div>
+        </div>
+        <!-- end of footer -->
+    </div>
+    <div style="width: 100%; min-height: 100%; position: relative; background-color: #FFFFFF;">
+        <!--header-->
+        <table cellpadding="0" cellspacing="0" border="0" style="
+        width: 100%;
+        background-color: #0e227b;
+        color: #fff;
+        ">
+            <tr>
+                <td style="padding: 23px 25px">
+                    <a href="https://www.gozayaan.com/" target="_blank">
+                        <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/gozayaan-logo-white.png"
+                            alt="gozayaan-logo" style="display: block; width: 95px" />
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <!--end of header-->
+        <!-- booking id -->
+        <div class="container" style="padding-top: 20px;">
+            <div class="table booking-info">
+                <div class="table-row">
+                    <div class="table-cell">
+                        <p>Booking ID</p>
+                        <p style="font-weight: 600;">{{hotel_booking_id}}</p>
+                    </div>
+                    <div class="table-cell" style="text-align: right;">
+                        <div style="display: inline-block; text-align: left;">
+                            <p>Hotel Reference</p>
+                            <p style="font-weight: 600;">{{hotel_reference}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- end of booking id -->
+        <!-- child policy -->
+        {% if child_policy %}
+            <div class="child-policy" style="padding-top: 16px;">
+                <h4 style="
+              color: #022738;
+              font-size: 10px;
+              line-height: 16px;
+              padding-bottom: 6px;
+              text-transform: capitalize;
+              font-weight: 600;
+            ">
+                    Child Policy
+                </h4>
+                <p style="font-size: 10px; color: #022738; line-height: 16px;">
+                    {{child_policy|safe}}
+                </p>
+            </div>
+            <!-- end of child policy -->
+        {% endif %}
+            <!-- pet policy -->
+        {% if pet_policy %}
+            <div class="child-policy" style="padding-top: 16px;">
+                <h4 style="
+              color: #022738;
+              font-size: 10px;
+              line-height: 16px;
+              padding-bottom: 6px;
+              text-transform: capitalize;
+              font-weight: 600;
+            ">
+                    Pet Policy
+                </h4>
+                <p style="font-size: 10px; color: #022738; line-height: 16px;">
+                    {{ pet_policy|safe|safe }}
+                </p>
+            </div>
+        <!-- end of pet policy -->
+        </div>
+        {% endif %}
+        <!-- house rules -->
+        {% if house_rules %}
+        <div class="container">
+            <div class="child-policy" style="padding-top: 16px;">
+                <h4 style="
+              color: #022738;
+              font-size: 10px;
+              line-height: 16px;
+              padding-bottom: 6px;
+              text-transform: capitalize;
+              font-weight: 600;
+            ">
+                    House Rules
+                </h4>
+                <p style="
+              font-size: 10px;
+              color: #022738;
+              line-height: 16px;
+              text-align: justify;
+            ">
+                    {{house_rules|safe}}
+                </p>
+            </div>
+        </div>
+        <!-- end of house rules -->
+        {% endif %}
+        {% if is_expedia_hotel %}
+            {% if check_in_instruction %}
+            <div class="container">
+                <!-- Check-in Instruction -->
+                <div class="child-policy" style="padding-top: 16px;">
+                    <h4 style="
+                color: #022738;
+                font-size: 10px;
+                line-height: 16px;
+                padding-bottom: 6px;
+                text-transform: capitalize;
+                font-weight: 600;
+                ">
+                        Check-in Instructions
+                    </h4>
+                    <p style="
+                font-size: 10px;
+                color: #022738;
+                line-height: 16px;
+                text-align: justify;
+                ">
+                    {{ check_in_instruction|safe }}
+                    </p>
+                </div>
+                <!-- end of Check-in Instruction -->
+            </div>
+            {% endif %}
+            {% if mandatory_fees %}
+            <div class="container">
+                <!-- Mandatory Fees -->
+                <div class="child-policy" style="padding-top: 16px;">
+                    <h4 style="
+                color: #022738;
+                font-size: 10px;
+                line-height: 16px;
+                padding-bottom: 6px;
+                text-transform: capitalize;
+                font-weight: 600;
+                ">
+                        Mandatory Fees
+                    </h4>
+                    <p style="
+                font-size: 10px;
+                color: #022738;
+                line-height: 16px;
+                text-align: justify;
+                ">
+                        {{ mandatory_fees|safe}}
+                    </p>
+                </div>
+                <!-- end of Mandatory Fees -->
+            </div>
+            {% endif %}
+            {% if optional_fees %}
+            <div class="container">
+                <!-- Optional Fees -->
+                <div class="child-policy" style="padding-top: 16px;">
+                    <h4 style="
+                color: #022738;
+                font-size: 10px;
+                line-height: 16px;
+                padding-bottom: 6px;
+                text-transform: capitalize;
+                font-weight: 600;
+                ">
+                        Optional Fees
+                    </h4>
+                    <p style="
+                font-size: 10px;
+                color: #022738;
+                line-height: 16px;
+                text-align: justify;
+                ">
+                        {{ optional_fees|safe}}
+                    </p>
+                </div>
+                <!-- end of Optional Fees -->
+            </div>
+            {% endif %}
+        {% endif %}
+        <!-- footer -->
+        <div class="table footer">
+            <div class="table-row">
+                <div class="table-cell">
+                    <p>
+                        Download GoZayaan App
+                    </p>
+                    <a style="text-decoration: none"
+                        href="https://play.google.com/store/apps/details?id=com.gozayaan.app" target="_blank">
+                        <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/play-store.png"
+                            alt="play-store-icon" style="width: 105px" />
+                    </a>
+                    <a style="text-decoration: none" href="https://apps.apple.com/us/app/gozayaan/id1635126688"
+                        target="_blank">
+                        <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/apple-store-icon.png"
+                            alt="apple-store-icon" style="width: 105px" />
+                    </a>
+                </div>
+                <div class="table-cell">
+                    <span style="
+                display: inline-block;
+                border-right: 1px dashed #bcc9dc;
+                height: 40px;
+                margin-top: 10px;
+              "></span>
+                </div>
+                <!-- BD contact -->
+                {% if is_bd_region %}
+                <div class="table-cell">
+                    <p>
+                        Follow Us
+                    </p>
+                    <a href="https://www.facebook.com/GoZayaanBD" style="display: inline-block" target="_blank">
+                        <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/facebook.png"
+                            alt="icon-facebook" style="width: 16px" />
+                    </a>
+                    <a href="https://www.instagram.com/gozayaan/" style="display: inline-block" target="_blank">
+                        <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/instagram.png"
+                            alt="icon-instagram" style="width: 16px" />
+                    </a>
+                    <a href="https://www.linkedin.com/company/gozayaanlimited/" style="display: inline-block"
+                        target="_blank">
+                        <img src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/LinkedIn.png"
+                            alt="icon-linkedin" style="width: 16px" />
+                    </a>
+                </div>
+                <!-- PK contact -->
+                {% elif is_pk_region %}
+                <div class="table-cell">
+						<p>
+							Follow Us
+						</p>
+						<a
+							href="https://www.facebook.com/GoZayaanPK"
+							style="display: inline-block"
+							target="_blank"
+						>
+							<img
+								src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/facebook.png"
+								alt="icon-facebook"
+								style="width: 16px"
+							/>
+						</a>
+						<a
+							href="https://www.instagram.com/gozayaanpk/"
+							style="display: inline-block"
+							target="_blank"
+						>
+							<img
+								src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/instagram.png"
+								alt="icon-instagram"
+								style="width: 16px"
+							/>
+						</a>
+						<a
+							href="https://www.linkedin.com/company/gozayaanpk/"
+							style="display: inline-block"
+							target="_blank"
+						>
+							<img
+								src="https://gozayaan.sgp1.cdn.digitaloceanspaces.com/branding/coupon_mail/LinkedIn.png"
+								alt="icon-linkedin"
+								style="width: 16px"
+							/>
+						</a>
+					</div>
+                    {% endif %}
+            </div>
+        </div>
+        <!-- end of footer -->
+    </div>
+</body>
+
+</html>

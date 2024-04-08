@@ -1,0 +1,15 @@
+pip install virtualenv
+cls
+virtualenv env
+env\scripts\activate
+pip install -r requirements.txt
+pip install django
+django-admin startproject my_shop .
+python manage.py runserver
+python manage.py startapp tickets
+python manage.py startapp hotels
+pip freeze --local > requirement.txt
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py collectstatic

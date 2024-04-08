@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hotels</title>
+</head>
+
+<body>
+    <h1>Hotels</h1>
+    <form action="{% url 'hotel:search_hotels' %}" method="GET">
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location">
+        <label for="check_in_date">Check-in date:</label>
+        <input type="date" id="check_in_date" name="check_in_date">
+        <label for="check_out_date">Check-out date:</label>
+        <input type="date" id="check_out_date" name="check_out_date">
+        <input type="submit" value="Search">
+    </form>
+    <ul>
+        {% for hotel in hotels %}
+        <li><a href="{% url 'hotel:hotel_detail' hotel_id=hotel.hotel_id %}">{{ hotel.hotel_name }}</a></li>
+        {% empty %}
+        <li>No hotels found.</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{%load static%}
+
+<div class="container d-flex justify-content-center align-items-center">
+  <section id="section-pricing">
+  <h2 class="display-4 text-center">Complain</h2>
+    <div class="row">
+      <div class="col-12 col-md-4 mb-4">
+        <div class="card card-outline-light">
+          <div class="card-header text-dark text-center">
+            <h2>CTO</h2>
+            <h4>Sappy</h4>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Sappy@nemesis.com</p>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item"><i class="fa fa-fw fa-paint-brush" aria-hidden="true"></i>I would love to hear from you</li>
+            <li class="list-group-item"><i class="fa fa-fw fa-instagram" aria-hidden="true"></i> Always here, For you</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 mb-4">
+        <div class="card card-outline-light">
+          <div class="card-header text-dark text-center">
+            <h2>COO</h2>
+            <h4>Faiza</h4>
+            <h4>Faiza@nemesis.com</h4>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item"><i class="fa fa-fw fa-paint-brush" aria-hidden="true"></i>I would love to hear from you</li>
+            <li class="list-group-item"><i class="fa fa-fw fa-instagram" aria-hidden="true"></i> Always here, For you</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 mb-4">
+        <div class="card card-outline-light">
+          <div class="card-header text-dark text-center">
+            <h2>CFO</h2>
+            <h4>Maruf</h4>
+            <h4>Maruf@nemesis.com</h4>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item"><i class="fa fa-fw fa-paint-brush" aria-hidden="true"></i>I would love to hear from you</li>
+            <li class="list-group-item"><i class="fa fa-fw fa-instagram" aria-hidden="true"></i> Always here, For you</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="container d-flex justify-content-center align-items-center">
+  <section id="section-pricing">
+  <h2 class="display-4 text-center">Our Team is always Here for YOU!!!</h2>
+    <div class="row">
+      <div class="col-12 col-md-4 mb-4">
+        <div class="card card-outline-light">
+          <div class="card-header text-dark text-center">
+            <h2>Travel Solution Team</h2>
+            <h4>travel@nemesis.com</h4>
+          </div>
+          <div class="card-body">
+            <p class="card-text">For US Bangla Airline ticket booking</p>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item"><i class="fa fa-fw fa-paint-brush" aria-hidden="true"></i>I would love to hear from you</li>
+            <li class="list-group-item"><i class="fa fa-fw fa-instagram" aria-hidden="true"></i> Always here, For you</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 mb-4">
+        <div class="card card-outline-light">
+          <div class="card-header text-dark text-center">
+            <h2>For Domestic Hotel Bookings</h2>
+            <h4>hotel@nemesis.com</h4>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item"><i class="fa fa-fw fa-paint-brush" aria-hidden="true"></i>I would love to hear from you</li>
+            <li class="list-group-item"><i class="fa fa-fw fa-instagram" aria-hidden="true"></i> Always here, For you</li>
+          </ul>
+        </div>
+      </div>
+  </section>
+</div>
+
+<div class="container">
+  <section
+    class="jumbotron jumbotron-fluid"
+    style="
+      background-image: url('{% static 'images/011.jpg' %}');
+      background-size: cover;
+      background-position: center;
+    "
+  >
+    <div class="container">
+      <h1 class="display-1">Nemesis</h1>
+      <p class="display-4">Where Adventure Meets Accommodation</p>
+      <p class="lead">
+        Welcome! Please select a vehicle and choose your preferred seat on the
+        next page
+      </p>
+      <p class="lead">
+        Some vehicles may have different seating sections or classes, so choose
+        the appropriate section if applicable
+      </p>
+      <p><strong>Please Explore more:</strong></p>
+      <a href="{% url 'tickets:search_travels' %}" class="btn btn-lg btn-primary"
+        >Search a Ticket</a
+      >
+    </div>
+
+</html>
+{% endblock content %}
